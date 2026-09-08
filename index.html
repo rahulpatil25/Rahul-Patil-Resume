@@ -362,7 +362,7 @@
       }
 
       /* ---------- Print / PDF ---------- */
-      @page { size: A4; margin: 11.5mm 14mm; }
+      @page { size: A4; margin: 13mm 14mm; }
 
       @media print {
         :root {
@@ -378,38 +378,38 @@
           --accent-wash: #eaf3f1;
           --shadow: none;
         }
-        html, body { background: #fff; font-size: 9.4pt; line-height: 1.38; }
+        html, body { background: #fff; font-size: 9.6pt; line-height: 1.4; }
         * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         .sheet { max-width: none; padding: 0; }
         /* Photo, download button and the per-role stack line (covered by Skills) drop out on paper. */
         .portrait, .download, footer .rights, .stack { display: none; }
-        .masthead { padding-bottom: 11px; border-bottom-width: 1.5px; }
-        h1 { font-size: 21.5pt; }
-        .tagline { font-size: 10.5pt; margin-top: 4px; }
+        .masthead { padding-bottom: 13px; border-bottom-width: 1.5px; }
+        h1 { font-size: 23pt; }
+        .tagline { font-size: 11pt; margin-top: 4px; }
         .focus { font-size: 8.8pt; margin-top: 2px; }
         .contact { font-size: 8.6pt; gap: 2px 14px; margin-top: 8px; }
         .contact a { border-bottom: 0; }
-        .summary { font-size: 9.8pt; line-height: 1.4; margin-top: 12px; }
+        .summary { font-size: 9.8pt; line-height: 1.45; margin-top: 13px; }
 
         /* The metric strip collapses to one scannable line on paper. */
         .metrics {
           display: flex; flex-wrap: wrap; gap: 3px 18px;
-          margin-top: 9px; padding: 6px 0 0;
+          margin-top: 11px; padding: 8px 0 0;
           background: none; border: 0; border-top: 1px solid var(--rule-soft); border-radius: 0;
         }
         .metrics li { padding: 0; display: flex; align-items: baseline; gap: 5px; background: none; }
         .metrics b { display: inline; font-size: 12pt; }
         .metrics span { display: inline; margin-top: 0; font-size: 8.4pt; }
 
-        section { margin-top: 13px; }
-        .section-head { margin-bottom: 8px; }
+        section { margin-top: 16px; }
+        .section-head { margin-bottom: 9px; }
         .section-head h2 { font-size: 8.6pt; }
         .role-head h3 { font-size: 12.5pt; }
         .role-sub { font-size: 9.6pt; }
         .role-head .when { font-size: 9pt; }
-        .track { margin-top: 8px; }
+        .track { margin-top: 9px; }
         .track h4 { font-size: 8.2pt; margin-bottom: 4px; }
-        .track li { margin-bottom: 2px; padding-left: 13px; text-indent: -13px; }
+        .track li { margin-bottom: 3px; padding-left: 13px; text-indent: -13px; }
         .track li::before { width: 3.5px; height: 3.5px; margin-right: 9.5px; }
 
         /* Chips become inline text so each skill row fits on one line. */
@@ -422,10 +422,10 @@
         .chip:not(:last-child)::after { content: " ·  "; color: var(--rule); white-space: pre; }
 
         .stack { margin-top: 10px; padding-top: 7px; font-size: 8.8pt; }
-        .edu { gap: 7px; }
+        .edu { gap: 8px; }
         .edu .where { font-size: 9pt; }
         .edu .when { font-size: 8.8pt; }
-        footer { margin-top: 11px; padding-top: 8px; font-size: 8.4pt; }
+        footer { margin-top: 14px; padding-top: 9px; font-size: 8.4pt; }
         section, .role, .track, .edu li, .skill-row { break-inside: avoid; page-break-inside: avoid; }
         .section-head { break-after: avoid; page-break-after: avoid; }
       }
@@ -487,7 +487,6 @@
               <li>Optimised SQL queries and data-retrieval routines across reporting workloads, <b>improving report generation speed by 30%</b>.</li>
               <li>Monitored performance metrics and troubleshot production issues daily, <b>sustaining 99.9% uptime</b> on business-critical databases.</li>
               <li>Partnered with the DBA team on SQL Server maintenance, safeguarding data integrity and query performance across environments.</li>
-              <li>Led the database development team through a <b>Dealership Management System database rebuild</b>, and delivered Dell Boomi ETL integrations for a leading parts manufacturer.</li>
             </ul>
           </div>
 
@@ -561,13 +560,6 @@
               <span class="where">Savitribai Phule Pune University — Pune, India</span>
             </span>
             <span class="when">Aug 2016 – Nov 2020</span>
-          </li>
-          <li>
-            <span>
-              <span class="what">General Management Program</span>
-              <span class="where">Stoa School</span>
-            </span>
-            <span class="when">2022 – 2023</span>
           </li>
         </ul>
       </section>
