@@ -3,61 +3,601 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Resume</title>
+    <title>Rahul Patil — Software &amp; Database Engineer</title>
+    <meta name="description" content="Rahul Patil — Software and Database Engineer in Pune, India. .NET, SQL Server and enterprise application support for automotive manufacturing systems.">
+    <meta name="author" content="Rahul Patil">
+    <meta property="og:title" content="Rahul Patil — Software &amp; Database Engineer">
+    <meta property="og:description" content=".NET, SQL Server and enterprise application support for automotive manufacturing systems.">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="./assets/headshot.jpg">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%84%EF%B8%8F%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./assets/fonts.css">
+    <style>
+      :root {
+        --paper:        #faf9f7;
+        --surface:      #ffffff;
+        --ink:          #16181c;
+        --ink-soft:     #3d434c;
+        --muted:        #6b727c;
+        --rule:         #e6e3dd;
+        --rule-soft:    #efede8;
+        --accent:       #0d6a5e;
+        --accent-ink:   #0a544a;
+        --accent-wash:  #e9f3f0;
+        --shadow:       0 1px 2px rgba(20, 24, 28, .04), 0 12px 32px -18px rgba(20, 24, 28, .28);
+        --radius:       14px;
+        --measure:      820px;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --paper:       #0e1013;
+          --surface:     #15181c;
+          --ink:         #e9ebee;
+          --ink-soft:    #c2c7ce;
+          --muted:       #939ba5;
+          --rule:        #262b31;
+          --rule-soft:   #1e2228;
+          --accent:      #5fd0bd;
+          --accent-ink:  #7fdcca;
+          --accent-wash: #14302c;
+          --shadow:      0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px -18px rgba(0, 0, 0, .8);
+        }
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .sheet {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 40px 28px 72px;
+      }
+
+      a { color: var(--accent-ink); text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); text-underline-offset: 2px; }
+      a:hover { text-decoration-color: currentColor; }
+
+      h1, h2, h3 { font-family: "Source Serif 4", Georgia, "Times New Roman", serif; font-weight: 600; margin: 0; }
+
+      /* ---------- Header ---------- */
+      .masthead {
+        display: flex;
+        align-items: flex-start;
+        gap: 22px;
+        padding-bottom: 22px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .portrait {
+        flex: 0 0 auto;
+        margin-top: 3px;
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--rule);
+        box-shadow: var(--shadow);
+      }
+
+      .identity { flex: 1 1 auto; min-width: 0; }
+
+      h1 {
+        font-size: clamp(30px, 5.4vw, 40px);
+        line-height: 1.08;
+        letter-spacing: -0.015em;
+      }
+
+      .tagline {
+        margin: 7px 0 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--accent-ink);
+        letter-spacing: .005em;
+      }
+
+      .focus {
+        margin: 3px 0 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--muted);
+        letter-spacing: .02em;
+      }
+
+      .contact {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 20px;
+        margin: 13px 0 0;
+        padding: 0;
+        font-size: 13.5px;
+        color: var(--muted);
+      }
+
+      .contact li { display: flex; align-items: center; }
+      .contact a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+      .contact a:hover { color: var(--accent-ink); border-bottom-color: currentColor; }
+
+      .download {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 9px 15px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--ink);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+        transition: border-color .15s ease, color .15s ease, transform .15s ease;
+      }
+      .download:hover { border-color: var(--accent); color: var(--accent-ink); transform: translateY(-1px); }
+      .download svg { width: 14px; height: 14px; }
+
+      /* ---------- Summary ---------- */
+      .summary {
+        margin: 26px 0 0;
+        font-size: 16.5px;
+        line-height: 1.62;
+        color: var(--ink-soft);
+      }
+      .summary strong { color: var(--ink); font-weight: 600; }
+
+      /* ---------- Metrics ---------- */
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        margin: 26px 0 0;
+        padding: 0;
+        list-style: none;
+        background: var(--rule-soft);
+        border: 1px solid var(--rule-soft);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      .metrics li {
+        background: var(--surface);
+        padding: 15px 16px;
+      }
+
+      .metrics b {
+        display: block;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: var(--accent-ink);
+        letter-spacing: -0.01em;
+      }
+
+      .metrics span {
+        display: block;
+        margin-top: 4px;
+        font-size: 12.5px;
+        line-height: 1.35;
+        color: var(--muted);
+      }
+
+      /* ---------- Sections ---------- */
+      section { margin-top: 38px; }
+
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .section-head h2 {
+        font-size: 13px;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      .section-head::after {
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: var(--rule);
+      }
+
+      /* ---------- Experience ---------- */
+      .role + .role { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--rule-soft); }
+
+      .role-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 4px 18px;
+      }
+
+      .role-head h3 { font-size: 20px; letter-spacing: -0.01em; }
+      .role-head .when { font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+
+      .role-sub {
+        margin: 3px 0 0;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--accent-ink);
+      }
+      .role-sub .place { color: var(--muted); font-weight: 400; }
+
+      .track { margin-top: 16px; }
+
+      .track h4 {
+        margin: 0 0 7px;
+        font-size: 11.5px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .track ul { margin: 0; padding: 0; list-style: none; }
+
+      /* Hanging indent with an inline marker — nothing is absolutely positioned,
+         so the printed PDF keeps a natural top-to-bottom text order for ATS parsers. */
+      .track li {
+        padding-left: 18px;
+        text-indent: -18px;
+        margin-bottom: 7px;
+        color: var(--ink-soft);
+      }
+
+      .track li::before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-right: 13px;
+        vertical-align: .24em;
+        border-radius: 50%;
+        background: var(--accent);
+        opacity: .55;
+      }
+
+      .track li b { color: var(--ink); font-weight: 600; }
+
+      .stack {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px dashed var(--rule);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .stack b { color: var(--ink-soft); font-weight: 600; }
+
+      /* ---------- Skills ---------- */
+      .skills { display: grid; gap: 14px; }
+
+      .skill-row {
+        display: grid;
+        grid-template-columns: 168px 1fr;
+        gap: 8px 18px;
+        align-items: start;
+      }
+
+      .skill-row dt {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .07em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding-top: 5px;
+      }
+
+      .skill-row dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+
+      .chip {
+        display: inline-block;
+        padding: 4px 10px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        background: var(--surface);
+        font-size: 12.5px;
+        font-weight: 500;
+        color: var(--ink-soft);
+      }
+      .chip.key { border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: var(--accent-wash); color: var(--accent-ink); }
+
+      /* ---------- Education ---------- */
+      .edu { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+
+      .edu li {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 2px 18px;
+      }
+
+      .edu .what { font-weight: 600; color: var(--ink); }
+      .edu .where { display: block; font-size: 13.5px; color: var(--muted); margin-top: 1px; }
+      .edu .when { font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+      /* ---------- Footer ---------- */
+      footer {
+        margin-top: 44px;
+        padding-top: 18px;
+        border-top: 1px solid var(--rule);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        justify-content: space-between;
+        font-size: 12.5px;
+        color: var(--muted);
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 720px) {
+        .sheet { padding: 28px 20px 56px; }
+        .masthead { flex-wrap: wrap; gap: 16px; }
+        .portrait { width: 68px; height: 68px; }
+        .download { order: 3; width: 100%; justify-content: center; }
+        .metrics { grid-template-columns: repeat(2, 1fr); }
+        .skill-row { grid-template-columns: 1fr; gap: 6px; }
+        .skill-row dt { padding-top: 0; }
+        .summary { font-size: 15.5px; }
+      }
+
+      /* ---------- Print / PDF ---------- */
+      @page { size: A4; margin: 11.5mm 14mm; }
+
+      @media print {
+        :root {
+          --paper: #ffffff;
+          --surface: #ffffff;
+          --ink: #101216;
+          --ink-soft: #2b3038;
+          --muted: #5d646d;
+          --rule: #d8d5cf;
+          --rule-soft: #e8e6e1;
+          --accent: #0d6a5e;
+          --accent-ink: #0a544a;
+          --accent-wash: #eaf3f1;
+          --shadow: none;
+        }
+        html, body { background: #fff; font-size: 9.4pt; line-height: 1.38; }
+        * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .sheet { max-width: none; padding: 0; }
+        /* Photo, download button and the per-role stack line (covered by Skills) drop out on paper. */
+        .portrait, .download, footer .rights, .stack { display: none; }
+        .masthead { padding-bottom: 11px; border-bottom-width: 1.5px; }
+        h1 { font-size: 21.5pt; }
+        .tagline { font-size: 10.5pt; margin-top: 4px; }
+        .focus { font-size: 8.8pt; margin-top: 2px; }
+        .contact { font-size: 8.6pt; gap: 2px 14px; margin-top: 8px; }
+        .contact a { border-bottom: 0; }
+        .summary { font-size: 9.8pt; line-height: 1.4; margin-top: 12px; }
+
+        /* The metric strip collapses to one scannable line on paper. */
+        .metrics {
+          display: flex; flex-wrap: wrap; gap: 3px 18px;
+          margin-top: 9px; padding: 6px 0 0;
+          background: none; border: 0; border-top: 1px solid var(--rule-soft); border-radius: 0;
+        }
+        .metrics li { padding: 0; display: flex; align-items: baseline; gap: 5px; background: none; }
+        .metrics b { display: inline; font-size: 12pt; }
+        .metrics span { display: inline; margin-top: 0; font-size: 8.4pt; }
+
+        section { margin-top: 13px; }
+        .section-head { margin-bottom: 8px; }
+        .section-head h2 { font-size: 8.6pt; }
+        .role-head h3 { font-size: 12.5pt; }
+        .role-sub { font-size: 9.6pt; }
+        .role-head .when { font-size: 9pt; }
+        .track { margin-top: 8px; }
+        .track h4 { font-size: 8.2pt; margin-bottom: 4px; }
+        .track li { margin-bottom: 2px; padding-left: 13px; text-indent: -13px; }
+        .track li::before { width: 3.5px; height: 3.5px; margin-right: 9.5px; }
+
+        /* Chips become inline text so each skill row fits on one line. */
+        .skills { gap: 6px; }
+        .skill-row { grid-template-columns: 118px 1fr; gap: 2px 14px; }
+        .skill-row dt { font-size: 8.2pt; padding-top: 0; }
+        .skill-row dd { gap: 0; color: var(--ink-soft); }
+        .chip { padding: 0; border: 0; background: none; font-size: 9.2pt; }
+        .chip.key { background: none; color: var(--accent-ink); font-weight: 600; }
+        .chip:not(:last-child)::after { content: " ·  "; color: var(--rule); white-space: pre; }
+
+        .stack { margin-top: 10px; padding-top: 7px; font-size: 8.8pt; }
+        .edu { gap: 7px; }
+        .edu .where { font-size: 9pt; }
+        .edu .when { font-size: 8.8pt; }
+        footer { margin-top: 11px; padding-top: 8px; font-size: 8.4pt; }
+        section, .role, .track, .edu li, .skill-row { break-inside: avoid; page-break-inside: avoid; }
+        .section-head { break-after: avoid; page-break-after: avoid; }
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Rahul Patil</h1>
-    <img src="./Headshot47.png" height="150" alt="Rahul Patil Headshot"/>
-    <h2>Summary</h2>
-    <p>
-    Database Engineer with 2 years of experience in the design, development, and management of databases. 
-    Proficient in SQL Programming, database administration, data analysis and data modelling.
-    </p>
-    <hr/>
-    <h2>Education</h2>
-    <ul>
-        <li>Bachelor of Engineering, Computer Engineering - Savitribai Phule Pune University (2016 - 2020)</li>
-        <li>General Management Program - Stoa School (2022 - 2023)</li>
-    </ul>
-    <hr/>
-    <h2>Work Experience</h2>
-    <ul>
-        <li>
-            <b>Solution Developer, Tata Technologies Limited</b>
-            <p>December 2021 - Present</p>
+    <main class="sheet">
+
+      <header class="masthead">
+        <img class="portrait" src="./assets/headshot.jpg" alt="Portrait of Rahul Patil" width="720" height="720">
+        <div class="identity">
+          <h1>Rahul Patil</h1>
+          <p class="tagline">Software &amp; Database Engineer</p>
+          <p class="focus">.NET · SQL Server · Enterprise application support</p>
+          <ul class="contact">
+            <li>Pune, India</li>
+            <li><a href="mailto:rahulpatil.patil12@gmail.com">rahulpatil.patil12@gmail.com</a></li>
+            <li><a href="tel:+918806913688">+91 88069 13688</a></li>
+            <li><a href="https://www.linkedin.com/in/rkp25/">linkedin.com/in/rkp25</a></li>
+            <li><a href="https://github.com/rahulpatil25">github.com/rahulpatil25</a></li>
+          </ul>
+        </div>
+        <a class="download" href="./Rahul-Patil-Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 20h16"></path>
+          </svg>
+          Download PDF
+        </a>
+      </header>
+
+      <p class="summary">
+        Developer at <strong>Tata Technologies</strong> since 2021, building and running the .NET applications and SQL Server
+        databases behind manufacturing operations for a leading automotive client. I keep business-critical systems at
+        <strong>99.9% uptime</strong>, tune the SQL behind their reporting, and own Level 2/3 support from incident ticket to
+        production deployment.
+      </p>
+
+      <ul class="metrics">
+        <li><b>99.9%</b><span>uptime on business-critical databases</span></li>
+        <li><b>30%</b><span>faster report generation</span></li>
+        <li><b>50%</b><span>faster incident resolution</span></li>
+        <li><b>20</b><span>Windows Server environments</span></li>
+      </ul>
+
+      <section aria-labelledby="experience">
+        <div class="section-head"><h2 id="experience">Experience</h2></div>
+
+        <article class="role">
+          <div class="role-head">
+            <h3>Tata Technologies Limited</h3>
+            <span class="when">Dec 2021 – Present</span>
+          </div>
+          <p class="role-sub">Developer <span class="place">· Pune, India</span></p>
+
+          <div class="track">
+            <h4>Database engineering &amp; performance</h4>
             <ul>
-                <li><p>Aided the Production Support Engineering team by diagnosing &amp; debugging issues of the internal tools developed for one of the leading
-companies in the Automotive industry.</p></li>
-                <li><p>Designed &amp; Implemented ETL solutions by collaborating with Dell Boomi Support Team for one of the leading companies in the Parts
-Manufacturing Industry.</p></li>
-                <li><p>Led the Database Development team to refurbish a Dealership Management System database for one of the leading companies in the
-Automotive Industry.</p></li>
+              <li>Optimised SQL queries and data-retrieval routines across reporting workloads, <b>improving report generation speed by 30%</b>.</li>
+              <li>Monitored performance metrics and troubleshot production issues daily, <b>sustaining 99.9% uptime</b> on business-critical databases.</li>
+              <li>Partnered with the DBA team on SQL Server maintenance, safeguarding data integrity and query performance across environments.</li>
+              <li>Led the database development team through a <b>Dealership Management System database rebuild</b>, and delivered Dell Boomi ETL integrations for a leading parts manufacturer.</li>
             </ul>
-        </li>
-    </ul>
-    <hr/>
-    <h2>Skills</h2>
-    <ul>
-        <li>
-            <b>Industry Knowledge:</b>
-            Programming, Extract, Transform, Load (ETL), Software Development, Object-Oriented Programming (OOP), Computer
-Science, Dashboard, Analytics, Requirements Analysis, Web Development, Android Development, Android Studio, Database Management System
-(DBMS)
-        </li>
-        <li>
-            <b>Tools & Technologies:</b>
-            Databases, PostgreSQL, Microsoft SQL Server, SQL Server Management Studio, Tableau, Dell Boomi, SQL, Python
-(Programming Language), Microsoft Excel, C++, C (Programming Language), Java, JavaScript, HTML5, HTML, Cascading Style Sheets (CSS)
-        </li>
-        <li>
-            <b>Interpersonal Skills:</b>
-            Critical Thinking, Analytical Skills, Communication, Problem-Solving, Tremendous Learnability, Coachability
-        </li>
-    </ul>
-    <hr/>
-    <footer>
-        <p>© Rahul Patil. All rights reserved.</p>
-    </footer>
-    </body>
+          </div>
+
+          <div class="track">
+            <h4>Application development &amp; delivery</h4>
+            <ul>
+              <li>Built and maintained internal .NET / jQuery / HTML / CSS web applications that put <b>real-time reporting on 25+ shop-floor metrics</b> in front of MES users — plant data without a DBA in the loop.</li>
+              <li>Developed, deployed and maintained enterprise applications — reporting sites and GE Cimplicity — across <b>20 on-premises Windows Server environments</b>, planning releases for minimal downtime.</li>
+            </ul>
+          </div>
+
+          <div class="track">
+            <h4>Production support &amp; process</h4>
+            <ul>
+              <li>Owned <b>Level 2/3 application support</b> for critical systems, driving incidents and changes through BMC Remedy and streamlining the change-approval path.</li>
+              <li>Implemented ITIL-aligned incident and change management with cross-functional teams, <b>reducing incident resolution time by 50%</b> and improving change success rate.</li>
+            </ul>
+          </div>
+
+          <p class="stack"><b>Stack:</b> .NET · C# · jQuery · JavaScript · HTML/CSS · MS SQL Server · MySQL · PostgreSQL · Windows Server · GE Cimplicity · Dell Boomi · Git &amp; GitLab · Batch scripting · BMC Remedy ITSM</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="skills">
+        <div class="section-head"><h2 id="skills">Skills</h2></div>
+        <dl class="skills">
+          <div class="skill-row">
+            <dt>Languages</dt>
+            <dd>
+              <span class="chip key">C#</span><span class="chip key">SQL</span><span class="chip">JavaScript</span>
+              <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span>
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Databases</dt>
+            <dd>
+              <span class="chip key">Microsoft SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span>
+              <span class="chip">Query optimisation</span><span class="chip">Performance monitoring</span>
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Web &amp; frameworks</dt>
+            <dd>
+              <span class="chip key">.NET</span><span class="chip">jQuery</span><span class="chip">HTML5 &amp; CSS</span>
+              <span class="chip">React</span><span class="chip">Node.js</span>
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Platforms &amp; tooling</dt>
+            <dd>
+              <span class="chip">Windows Server</span><span class="chip">GE Cimplicity</span><span class="chip">Dell Boomi</span>
+              <span class="chip">Tableau</span><span class="chip">Batch scripting</span><span class="chip">Git &amp; GitLab</span>
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Support &amp; process</dt>
+            <dd>
+              <span class="chip key">ITIL framework</span><span class="chip">BMC Remedy ITSM</span>
+              <span class="chip">Incident &amp; change management</span><span class="chip">Release management</span>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="education">
+        <div class="section-head"><h2 id="education">Education</h2></div>
+        <ul class="edu">
+          <li>
+            <span>
+              <span class="what">B.E., Computer Engineering</span>
+              <span class="where">Savitribai Phule Pune University — Pune, India</span>
+            </span>
+            <span class="when">Aug 2016 – Nov 2020</span>
+          </li>
+          <li>
+            <span>
+              <span class="what">General Management Program</span>
+              <span class="where">Stoa School</span>
+            </span>
+            <span class="when">2022 – 2023</span>
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        <span>Open to Software / Database Engineering roles — <a href="mailto:rahulpatil.patil12@gmail.com">get in touch</a>.</span>
+        <span class="rights">© <span id="year">2026</span> Rahul Patil</span>
+      </footer>
+
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rahul Patil",
+      "jobTitle": "Software & Database Engineer",
+      "email": "mailto:rahulpatil.patil12@gmail.com",
+      "telephone": "+91-8806913688",
+      "image": "./assets/headshot.jpg",
+      "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" },
+      "worksFor": { "@type": "Organization", "name": "Tata Technologies Limited" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Savitribai Phule Pune University" },
+      "sameAs": ["https://www.linkedin.com/in/rkp25/", "https://github.com/rahulpatil25"],
+      "knowsAbout": [".NET", "C#", "Microsoft SQL Server", "PostgreSQL", "MySQL", "ITIL", "Incident Management"]
+    }
+    </script>
+  </body>
 </html>
